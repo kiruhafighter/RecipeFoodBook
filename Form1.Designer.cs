@@ -31,7 +31,7 @@ namespace RecipeFoodBook
         {
             this.listBoxAllRecipes = new System.Windows.Forms.ListBox();
             this.listBoxSelRecIng = new System.Windows.Forms.ListBox();
-            this.listBoxSelInst = new System.Windows.Forms.ListBox();
+            this.richTextBoxForInstruction = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // listBoxAllRecipes
@@ -57,23 +57,21 @@ namespace RecipeFoodBook
             this.listBoxSelRecIng.Size = new System.Drawing.Size(206, 244);
             this.listBoxSelRecIng.TabIndex = 1;
             // 
-            // listBoxSelInst
+            // richTextBoxForInstruction
             // 
-            this.listBoxSelInst.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listBoxSelInst.FormattingEnabled = true;
-            this.listBoxSelInst.ItemHeight = 20;
-            this.listBoxSelInst.Location = new System.Drawing.Point(528, 112);
-            this.listBoxSelInst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.listBoxSelInst.Name = "listBoxSelInst";
-            this.listBoxSelInst.Size = new System.Drawing.Size(206, 244);
-            this.listBoxSelInst.TabIndex = 2;
+            this.richTextBoxForInstruction.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.richTextBoxForInstruction.Location = new System.Drawing.Point(532, 112);
+            this.richTextBoxForInstruction.Name = "richTextBoxForInstruction";
+            this.richTextBoxForInstruction.Size = new System.Drawing.Size(199, 244);
+            this.richTextBoxForInstruction.TabIndex = 3;
+            this.richTextBoxForInstruction.Text = "";
             // 
             // RecipeBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 499);
-            this.Controls.Add(this.listBoxSelInst);
+            this.Controls.Add(this.richTextBoxForInstruction);
             this.Controls.Add(this.listBoxSelRecIng);
             this.Controls.Add(this.listBoxAllRecipes);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -88,7 +86,7 @@ namespace RecipeFoodBook
 
         private System.Windows.Forms.ListBox listBoxAllRecipes;
         private System.Windows.Forms.ListBox listBoxSelRecIng;
-        private System.Windows.Forms.ListBox listBoxSelInst;
+        private System.Windows.Forms.RichTextBox richTextBoxForInstruction;
     }
 }
 

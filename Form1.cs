@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI;
 using System.Windows.Forms;
-using Dapper;
+
 
 namespace RecipeFoodBook
 {
@@ -39,6 +39,8 @@ namespace RecipeFoodBook
             List<Ingredient> chosenIngredients = DataAccess.GetIngredientsFromSelectedRecipe(value);
             listBoxSelRecIng.DataSource = chosenIngredients;
             listBoxSelRecIng.DisplayMember = "ShortInfo";
+
+            richTextBoxForInstruction.Text = recipe.Instruction;
         }
 
         
