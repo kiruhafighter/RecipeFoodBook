@@ -43,7 +43,13 @@ namespace RecipeFoodBook
             richTextBoxForInstruction.Text = recipe.Instruction;
         }
 
-        
+        private void butSearchRecipe_Click(object sender, EventArgs e)
+        {
+            List<Recipe> SearchRecipe = SearchData.SearchRecipeByName(textBoxSearchRecipe.Text);
+            listBoxAllRecipes.DataSource = SearchRecipe;
+            listBoxAllRecipes.DisplayMember = "Name";
+            listBoxAllRecipes.ValueMember = "Id";
+        }
     }
 }
 
