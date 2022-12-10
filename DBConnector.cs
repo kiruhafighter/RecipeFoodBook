@@ -10,9 +10,9 @@ namespace RecipeFoodBook
 {
     public class DBConnector
     {
-        public static string ConnectionValue (string name)
+        public static string ConnectionValue ()
         {
-            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+            return ConfigurationManager.ConnectionStrings["RecipesDB"].ConnectionString;
         }
     }
 }

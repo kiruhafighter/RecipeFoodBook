@@ -14,7 +14,7 @@ namespace RecipeFoodBook
     {
         public static List<Recipe> SearchRecipeByName(string name)
         {
-            using (IDbConnection conn = new SqlConnection(DBConnector.ConnectionValue("RecipesDB")))
+            using (IDbConnection conn = new SqlConnection(DBConnector.ConnectionValue()))
             {
                 List<Recipe> output;
                 

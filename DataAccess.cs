@@ -14,7 +14,7 @@ namespace RecipeFoodBook
     {
         public static List<Recipe> GetAllRecipes()
         {
-            using (IDbConnection connection = new SqlConnection(DBConnector.ConnectionValue("RecipesDB")))
+            using (IDbConnection connection = new SqlConnection(DBConnector.ConnectionValue()))
             {
                 var output = connection.Query<Recipe>("Select * from Recipes").ToList();
                 return output;
@@ -23,7 +23,7 @@ namespace RecipeFoodBook
         
         public static List<Ingredient> GetIngredientsFromSelectedRecipe(string selectedId)
         {
-            using (IDbConnection connection = new SqlConnection(DBConnector.ConnectionValue("RecipesDB")))
+            using (IDbConnection connection = new SqlConnection(DBConnector.ConnectionValue()))
             {
                 if (!string.IsNullOrEmpty(selectedId))
                 {

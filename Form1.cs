@@ -38,10 +38,10 @@ namespace RecipeFoodBook
             }
             List<Ingredient> chosenIngredients = DataAccess.GetIngredientsFromSelectedRecipe(value);
             listBoxSelRecIng.DataSource = chosenIngredients;
-            listBoxSelRecIng.DisplayMember = "ShortInfo";
-
+            listBoxSelRecIng.DisplayMember = "Name";
+            //instruction
             richTextBoxForInstruction.Text = recipe.Instruction;
-        }
+		}
 
         private void butSearchRecipe_Click(object sender, EventArgs e)
         {
@@ -49,6 +49,17 @@ namespace RecipeFoodBook
             listBoxAllRecipes.DataSource = SearchRecipe;
             listBoxAllRecipes.DisplayMember = "Name";
             listBoxAllRecipes.ValueMember = "Id";
+        }
+
+        private void addRecipeButton_Click(object sender, EventArgs e)
+        {
+            string nameRecipe = addNameRecipeTextBox.Text;
+            string instructionRecipe = addInstrRecipeTextBox.Text;
+            DataAdding.AddRecipe(nameRecipe, instructionRecipe);
+            addInstrRecipeTextBox.Text = "";
+            addNameRecipeTextBox.Text = "";
+            allRecipes = DataAccess.GetAllRecipes();
+            listBoxAllRecipes.DataSource = allRecipes;
         }
     }
 }
