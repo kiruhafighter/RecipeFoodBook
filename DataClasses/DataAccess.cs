@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,15 @@ namespace RecipeFoodBook
                     return output;
                 }
                 return new List<Ingredient>();
+            }
+        }
+
+        public static List<Ingredient> GetAllIngredients()
+        {
+            using (DbConnection connection = new SqlConnection(DBConnector.ConnectionValue()))
+            {
+                var output = connection.Query<Ingredient>("Select * from Ingredients");
+                return output.ToList();
             }
         }
         
