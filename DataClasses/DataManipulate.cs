@@ -76,5 +76,13 @@ namespace RecipeFoodBook
                 connection.Execute($"Update Ingredients Set Name = '{title}' Where Id = {selectedId}");
             }
         }
+
+        public static void RemoveIngredientFromRecipe(string selectedRecipeId, string selectedIngrId)
+        {
+            using(DbConnection connection = new SqlConnection(DBConnector.ConnectionValue()))
+            {
+                connection.Execute($"Delete from RecipeIngredient Where RecipeId = {selectedRecipeId} And IngredientId = {selectedIngrId}");
+            }
+        }
     }
 }

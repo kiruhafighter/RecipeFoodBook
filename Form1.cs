@@ -169,6 +169,22 @@ namespace RecipeFoodBook
             listBoxAllIngredients.DataSource = allIngredients;
             changeIngredientNameTextBox.Text = "";
         }
+
+        private void removeFromRecopeButton_Click(object sender, EventArgs e)
+        {
+            Recipe recipe = (Recipe)listBoxAllRecipes.SelectedItem;
+            Ingredient ingredient = (Ingredient)listBoxAllIngredients.SelectedItem;
+            string ingredientId = "";
+            string recipeId = "";
+            if (ingredient != null && recipe != null)
+            {
+                ingredientId = ingredient.Id.ToString();
+                recipeId = recipe.Id.ToString();
+            }
+            DataManipulate.RemoveIngredientFromRecipe(recipeId, ingredientId);
+            List<Ingredient> chosenIngredients = DataAccess.GetIngredientsFromSelectedRecipe(recipeId);
+            listBoxAllIngredients.DataSource = chosenIngredients;
+        }
     }
 }
 
