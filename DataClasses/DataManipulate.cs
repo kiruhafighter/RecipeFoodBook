@@ -59,5 +59,22 @@ namespace RecipeFoodBook
                 connection.Execute($"Update Recipes Set Instruction = '{instruction}' Where Id = {selectedId}");
             }
         }
+
+
+        public static void UpdateRecipeName (string title, string selectedId)
+        {
+            using(DbConnection connection = new SqlConnection(DBConnector.ConnectionValue()))
+            {
+                connection.Execute($"Update Recipes Set Name = '{title}' Where Id = {selectedId}");
+            }
+        }
+
+        public static void UpdateIngredientName(string title, string selectedId)
+        {
+            using (DbConnection connection = new SqlConnection(DBConnector.ConnectionValue()))
+            {
+                connection.Execute($"Update Ingredients Set Name = '{title}' Where Id = {selectedId}");
+            }
+        }
     }
 }

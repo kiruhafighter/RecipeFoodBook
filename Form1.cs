@@ -37,8 +37,8 @@ namespace RecipeFoodBook
                 value = Convert.ToString(recipe.Id);
             }
             List<Ingredient> chosenIngredients = DataAccess.GetIngredientsFromSelectedRecipe(value);
-            listBoxSelRecIng.DataSource = chosenIngredients;
-            listBoxSelRecIng.DisplayMember = "Name";
+            listBoxAllIngredients.DataSource = chosenIngredients;
+            listBoxAllIngredients.DisplayMember = "Name";
             //instruction
             richTextBoxForInstruction.Text = recipe.Instruction;
 		}
@@ -91,13 +91,13 @@ namespace RecipeFoodBook
         private void showAllIngredientsButton_Click(object sender, EventArgs e)
         {
             allIngredients = DataAccess.GetAllIngredients();
-            listBoxSelRecIng.DataSource = allIngredients;
-            listBoxSelRecIng.DisplayMember = "Name";
+            listBoxAllIngredients.DataSource = allIngredients;
+            listBoxAllIngredients.DisplayMember = "Name";
         }
 
         private void deleteIngredientButton_Click(object sender, EventArgs e)
         {
-            Ingredient ingredient = (Ingredient)listBoxSelRecIng.SelectedItem;
+            Ingredient ingredient = (Ingredient)listBoxAllIngredients.SelectedItem;
             string value = "";
             if (ingredient != null)
             {
@@ -109,12 +109,12 @@ namespace RecipeFoodBook
                 DataManipulate.DeleteIngredient(value);
             }
             allIngredients = DataAccess.GetAllIngredients();
-            listBoxSelRecIng.DataSource = allIngredients;
+            listBoxAllIngredients.DataSource = allIngredients;
         }
 
         private void addIngredientToRecipeButton_Click(object sender, EventArgs e)
         {
-            Ingredient ingredient = listBoxSelRecIng.SelectedItem as Ingredient;
+            Ingredient ingredient = listBoxAllIngredients.SelectedItem as Ingredient;
             Recipe recipe = listBoxAllRecipes.SelectedItem as Recipe;
             string ingredientId = "";
             string recipeId = "";
@@ -138,6 +138,36 @@ namespace RecipeFoodBook
             DataManipulate.UpdateRecipeInstruction(newInstruction, selectedId);
             allRecipes = DataAccess.GetAllRecipes();
             listBoxAllRecipes.DataSource = allRecipes;
+        }
+
+        private void changeRecipeNameButton_Click(object sender, EventArgs e)
+        {
+            Recipe recipe = (Recipe)listBoxAllRecipes.SelectedItem;
+            string selectedId = "";
+            string newRecipeTitle = changeRecipeNameTextBox.Text;
+            if (recipe != null)
+            {
+                selectedId = recipe.Id.ToString();
+            }
+            DataManipulate.UpdateRecipeName(newRecipeTitle, selectedId);
+            allRecipes = DataAccess.GetAllRecipes();
+            listBoxAllRecipes.DataSource = allRecipes;
+            changeRecipeNameTextBox.Text = "";
+        }
+
+        private void changeIngredientNameButton_Click(object sender, EventArgs e)
+        {
+            Ingredient ingredient = (Ingredient)listBoxAllIngredients.SelectedItem;
+            string selectedId = "";
+            string newIngredientTitle = changeIngredientNameTextBox.Text;
+            if (ingredient != null)
+            {
+                selectedId = ingredient.Id.ToString();
+            }
+            DataManipulate.UpdateIngredientName(newIngredientTitle, selectedId);
+            allIngredients = DataAccess.GetAllIngredients();
+            listBoxAllIngredients.DataSource = allIngredients;
+            changeIngredientNameTextBox.Text = "";
         }
     }
 }

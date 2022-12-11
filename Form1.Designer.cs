@@ -30,7 +30,7 @@ namespace RecipeFoodBook
         private void InitializeComponent()
         {
             this.listBoxAllRecipes = new System.Windows.Forms.ListBox();
-            this.listBoxSelRecIng = new System.Windows.Forms.ListBox();
+            this.listBoxAllIngredients = new System.Windows.Forms.ListBox();
             this.richTextBoxForInstruction = new System.Windows.Forms.RichTextBox();
             this.textBoxSearchRecipe = new System.Windows.Forms.TextBox();
             this.butSearchRecipe = new System.Windows.Forms.Button();
@@ -49,6 +49,12 @@ namespace RecipeFoodBook
             this.deleteIngredientButton = new System.Windows.Forms.Button();
             this.addIngredientToRecipeButton = new System.Windows.Forms.Button();
             this.updateInstructionButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.changeRecipeNameButton = new System.Windows.Forms.Button();
+            this.changeRecipeNameTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.changeIngredientNameButton = new System.Windows.Forms.Button();
+            this.changeIngredientNameTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBoxAllRecipes
@@ -65,14 +71,14 @@ namespace RecipeFoodBook
             // 
             // listBoxSelRecIng
             // 
-            this.listBoxSelRecIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listBoxSelRecIng.FormattingEnabled = true;
-            this.listBoxSelRecIng.ItemHeight = 25;
-            this.listBoxSelRecIng.Location = new System.Drawing.Point(365, 81);
-            this.listBoxSelRecIng.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxSelRecIng.Name = "listBoxSelRecIng";
-            this.listBoxSelRecIng.Size = new System.Drawing.Size(273, 279);
-            this.listBoxSelRecIng.TabIndex = 1;
+            this.listBoxAllIngredients.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxAllIngredients.FormattingEnabled = true;
+            this.listBoxAllIngredients.ItemHeight = 25;
+            this.listBoxAllIngredients.Location = new System.Drawing.Point(365, 81);
+            this.listBoxAllIngredients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxAllIngredients.Name = "listBoxSelRecIng";
+            this.listBoxAllIngredients.Size = new System.Drawing.Size(273, 279);
+            this.listBoxAllIngredients.TabIndex = 1;
             // 
             // richTextBoxForInstruction
             // 
@@ -263,11 +269,79 @@ namespace RecipeFoodBook
             this.updateInstructionButton.UseVisualStyleBackColor = true;
             this.updateInstructionButton.Click += new System.EventHandler(this.updateInstructionButton_Click);
             // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.Location = new System.Drawing.Point(880, 501);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(225, 39);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Change Recepe Name";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // changeRecipeNameButton
+            // 
+            this.changeRecipeNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.changeRecipeNameButton.Location = new System.Drawing.Point(935, 586);
+            this.changeRecipeNameButton.Margin = new System.Windows.Forms.Padding(4);
+            this.changeRecipeNameButton.Name = "changeRecipeNameButton";
+            this.changeRecipeNameButton.Size = new System.Drawing.Size(124, 37);
+            this.changeRecipeNameButton.TabIndex = 22;
+            this.changeRecipeNameButton.Text = "Change";
+            this.changeRecipeNameButton.UseVisualStyleBackColor = true;
+            this.changeRecipeNameButton.Click += new System.EventHandler(this.changeRecipeNameButton_Click);
+            // 
+            // changeRecipeNameTextBox
+            // 
+            this.changeRecipeNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.changeRecipeNameTextBox.Location = new System.Drawing.Point(885, 544);
+            this.changeRecipeNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.changeRecipeNameTextBox.Name = "changeRecipeNameTextBox";
+            this.changeRecipeNameTextBox.Size = new System.Drawing.Size(220, 30);
+            this.changeRecipeNameTextBox.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label6.Location = new System.Drawing.Point(1129, 501);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(241, 39);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Change Ingredient Name";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // changeIngredientNameButton
+            // 
+            this.changeIngredientNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.changeIngredientNameButton.Location = new System.Drawing.Point(1184, 586);
+            this.changeIngredientNameButton.Margin = new System.Windows.Forms.Padding(4);
+            this.changeIngredientNameButton.Name = "changeIngredientNameButton";
+            this.changeIngredientNameButton.Size = new System.Drawing.Size(124, 37);
+            this.changeIngredientNameButton.TabIndex = 25;
+            this.changeIngredientNameButton.Text = "Change";
+            this.changeIngredientNameButton.UseVisualStyleBackColor = true;
+            this.changeIngredientNameButton.Click += new System.EventHandler(this.changeIngredientNameButton_Click);
+            // 
+            // changeIngredientNameTextBox
+            // 
+            this.changeIngredientNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.changeIngredientNameTextBox.Location = new System.Drawing.Point(1134, 544);
+            this.changeIngredientNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.changeIngredientNameTextBox.Name = "changeIngredientNameTextBox";
+            this.changeIngredientNameTextBox.Size = new System.Drawing.Size(220, 30);
+            this.changeIngredientNameTextBox.TabIndex = 24;
+            // 
             // RecipeBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1525, 797);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.changeIngredientNameButton);
+            this.Controls.Add(this.changeIngredientNameTextBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.changeRecipeNameButton);
+            this.Controls.Add(this.changeRecipeNameTextBox);
             this.Controls.Add(this.updateInstructionButton);
             this.Controls.Add(this.addIngredientToRecipeButton);
             this.Controls.Add(this.label4);
@@ -286,7 +360,7 @@ namespace RecipeFoodBook
             this.Controls.Add(this.butSearchRecipe);
             this.Controls.Add(this.textBoxSearchRecipe);
             this.Controls.Add(this.richTextBoxForInstruction);
-            this.Controls.Add(this.listBoxSelRecIng);
+            this.Controls.Add(this.listBoxAllIngredients);
             this.Controls.Add(this.listBoxAllRecipes);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RecipeBook";
@@ -300,7 +374,7 @@ namespace RecipeFoodBook
         #endregion
 
         private System.Windows.Forms.ListBox listBoxAllRecipes;
-        private System.Windows.Forms.ListBox listBoxSelRecIng;
+        private System.Windows.Forms.ListBox listBoxAllIngredients;
         private System.Windows.Forms.RichTextBox richTextBoxForInstruction;
         private System.Windows.Forms.TextBox textBoxSearchRecipe;
         private System.Windows.Forms.Button butSearchRecipe;
@@ -319,6 +393,12 @@ namespace RecipeFoodBook
         private System.Windows.Forms.Button deleteIngredientButton;
         private System.Windows.Forms.Button addIngredientToRecipeButton;
         private System.Windows.Forms.Button updateInstructionButton;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button changeRecipeNameButton;
+        private System.Windows.Forms.TextBox changeRecipeNameTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button changeIngredientNameButton;
+        private System.Windows.Forms.TextBox changeIngredientNameTextBox;
     }
 }
 
