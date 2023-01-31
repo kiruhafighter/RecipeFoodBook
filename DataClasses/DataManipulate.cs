@@ -18,6 +18,7 @@ namespace RecipeFoodBook
                 connection.Execute($"Insert into Recipes (Name, Instruction) values('{name}', '{instruction}')");
             }
         }
+
         public static void RemoveRecipe(string selectedId)
         {
             using (DbConnection connection = new SqlConnection(DBConnector.ConnectionValue()))

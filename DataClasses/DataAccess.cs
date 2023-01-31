@@ -47,6 +47,5 @@ namespace RecipeFoodBook
                 return output.ToList();
             }
         }
-        
     }
 }

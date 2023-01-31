@@ -201,6 +201,20 @@ namespace RecipeFoodBook
         {
             UpdateRecipes();
         }
+
+        private void searchIngredientButton_Click(object sender, EventArgs e)
+        {
+            string name = searchIngredientsTextBox.Text;
+            if(name == "All" || name == "ALL" || name == "all")
+            {
+                UpdateIngredients();
+            }
+            else
+            {
+                List<Ingredient> ingredients = SearchData.SearchIngredientByName(name);
+                listBoxAllIngredients.DataSource = ingredients;
+            }
+        }
     }
 }
 

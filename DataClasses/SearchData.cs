@@ -18,7 +18,7 @@ namespace RecipeFoodBook
             {
                 List<Recipe> output;
                 
-                if (name == "all" || name == "All" || name == "All")
+                if (name == "all" || name == "All" || name == "ALL")
                 {
                     output = conn.Query<Recipe>("Select * from Recipes").ToList();
                     return output;
@@ -28,7 +28,15 @@ namespace RecipeFoodBook
                     output = conn.Query<Recipe>($"Select * from Recipes where Name = '{name}'").ToList();
                     return output;
                 }
+            }
+        }
 
+        public static List<Ingredient> SearchIngredientByName (string name)
+        {
+            using (IDbConnection connection = new SqlConnection(DBConnector.ConnectionValue()))
+            {
+                var output = connection.Query<Ingredient>($"Select * from Ingredients where Name = '{name}'").ToList();
+                return output;
             }
         }
     }
