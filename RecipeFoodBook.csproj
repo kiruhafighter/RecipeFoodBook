@@ -52,6 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddingRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddingRecipeForm.Designer.cs">
+      <DependentUpon>AddingRecipeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddIngredientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddIngredientForm.Designer.cs">
+      <DependentUpon>AddIngredientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataClasses\DataAccess.cs" />
     <Compile Include="DataClasses\DataManipulate.cs" />
     <Compile Include="DBConnector.cs" />
@@ -67,6 +79,12 @@
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RecipeIngredient.cs" />
     <Compile Include="DataClasses\SearchData.cs" />
+    <EmbeddedResource Include="AddingRecipeForm.resx">
+      <DependentUpon>AddingRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddIngredientForm.resx">
+      <DependentUpon>AddIngredientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

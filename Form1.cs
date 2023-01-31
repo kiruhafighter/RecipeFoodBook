@@ -51,17 +51,6 @@ namespace RecipeFoodBook
             listBoxAllRecipes.ValueMember = "Id";
         }
 
-        private void addRecipeButton_Click(object sender, EventArgs e)
-        {
-            string nameRecipe = addNameRecipeTextBox.Text;
-            string instructionRecipe = addInstrRecipeTextBox.Text;
-            DataManipulate.AddRecipe(nameRecipe, instructionRecipe);
-            addInstrRecipeTextBox.Text = "";
-            addNameRecipeTextBox.Text = "";
-            allRecipes = DataAccess.GetAllRecipes();
-            listBoxAllRecipes.DataSource = allRecipes;
-        }
-
         private void deleteRecipeButton_Click(object sender, EventArgs e)
         {
             Recipe recipe = (Recipe)listBoxAllRecipes.SelectedItem;
@@ -75,24 +64,13 @@ namespace RecipeFoodBook
             {
                 DataManipulate.RemoveRecipe(value);
             }
-            allRecipes = DataAccess.GetAllRecipes();
-            listBoxAllRecipes.DataSource = allRecipes;
+            UpdateRecipes();
         }
 
-        private void addIngredientButton_Click(object sender, EventArgs e)
-        {
-            string nameIngredient = addIngredientTextBox.Text;
-            DataManipulate.AddNewIngredient(nameIngredient);
-            addIngredientTextBox.Text = "";
-            allRecipes = DataAccess.GetAllRecipes();
-            listBoxAllRecipes.DataSource = allRecipes;
-        }
 
         private void showAllIngredientsButton_Click(object sender, EventArgs e)
         {
-            allIngredients = DataAccess.GetAllIngredients();
-            listBoxAllIngredients.DataSource = allIngredients;
-            listBoxAllIngredients.DisplayMember = "Name";
+            UpdateIngredients();
         }
 
         private void deleteIngredientButton_Click(object sender, EventArgs e)
@@ -108,8 +86,7 @@ namespace RecipeFoodBook
             {
                 DataManipulate.DeleteIngredient(value);
             }
-            allIngredients = DataAccess.GetAllIngredients();
-            listBoxAllIngredients.DataSource = allIngredients;
+            UpdateIngredients();
         }
 
         private void addIngredientToRecipeButton_Click(object sender, EventArgs e)
@@ -136,8 +113,7 @@ namespace RecipeFoodBook
                 selectedId = recipe.Id.ToString();
             }
             DataManipulate.UpdateRecipeInstruction(newInstruction, selectedId);
-            allRecipes = DataAccess.GetAllRecipes();
-            listBoxAllRecipes.DataSource = allRecipes;
+            UpdateRecipes();
         }
 
         private void changeRecipeNameButton_Click(object sender, EventArgs e)
@@ -150,8 +126,7 @@ namespace RecipeFoodBook
                 selectedId = recipe.Id.ToString();
             }
             DataManipulate.UpdateRecipeName(newRecipeTitle, selectedId);
-            allRecipes = DataAccess.GetAllRecipes();
-            listBoxAllRecipes.DataSource = allRecipes;
+            UpdateRecipes();
             changeRecipeNameTextBox.Text = "";
         }
 
@@ -165,8 +140,7 @@ namespace RecipeFoodBook
                 selectedId = ingredient.Id.ToString();
             }
             DataManipulate.UpdateIngredientName(newIngredientTitle, selectedId);
-            allIngredients = DataAccess.GetAllIngredients();
-            listBoxAllIngredients.DataSource = allIngredients;
+            UpdateIngredients();
             changeIngredientNameTextBox.Text = "";
         }
 
@@ -184,6 +158,48 @@ namespace RecipeFoodBook
             DataManipulate.RemoveIngredientFromRecipe(recipeId, ingredientId);
             List<Ingredient> chosenIngredients = DataAccess.GetIngredientsFromSelectedRecipe(recipeId);
             listBoxAllIngredients.DataSource = chosenIngredients;
+        }
+
+        private void buttonAddRecipe_Click(object sender, EventArgs e)
+        {
+            AddingRecipeForm addRecipe = new AddingRecipeForm();
+            addRecipe.FormClosing += new FormClosingEventHandler(this.AddingRecipeForm_FormClosing);
+            addRecipe.Show();
+        }
+
+        private void buttonAddIngredient_Click(object sender, EventArgs e)
+        {
+            AddIngredientForm addIngredient = new AddIngredientForm();
+            addIngredient.FormClosing += new FormClosingEventHandler(this.AddIngredientForm_FormClosing);
+            addIngredient.Show();
+        }
+
+        private void AddingRecipeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            UpdateRecipes();
+        }
+
+        private void AddIngredientForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            UpdateIngredients();
+        }
+
+        private void UpdateRecipes()
+        {
+            allRecipes = DataAccess.GetAllRecipes();
+            listBoxAllRecipes.DataSource = allRecipes;
+        }
+
+        private void UpdateIngredients()
+        {
+            allIngredients = DataAccess.GetAllIngredients();
+            listBoxAllIngredients.DataSource = allIngredients;
+            listBoxAllIngredients.DisplayMember = "Name";
+        }
+
+        private void ShowAllRecipesButton_Click(object sender, EventArgs e)
+        {
+            UpdateRecipes();
         }
     }
 }
