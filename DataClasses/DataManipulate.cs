@@ -61,7 +61,6 @@ namespace RecipeFoodBook
             }
         }
 
-
         public static void UpdateRecipeName (string title, string selectedId)
         {
             using(DbConnection connection = new SqlConnection(DBConnector.ConnectionValue()))

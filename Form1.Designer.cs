@@ -216,7 +216,7 @@ namespace RecipeFoodBook
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(289, 518);
+            this.label6.Location = new System.Drawing.Point(289, 516);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(170, 40);
@@ -227,7 +227,7 @@ namespace RecipeFoodBook
             // changeIngredientNameButton
             // 
             this.changeIngredientNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.changeIngredientNameButton.Location = new System.Drawing.Point(325, 593);
+            this.changeIngredientNameButton.Location = new System.Drawing.Point(325, 591);
             this.changeIngredientNameButton.Name = "changeIngredientNameButton";
             this.changeIngredientNameButton.Size = new System.Drawing.Size(93, 30);
             this.changeIngredientNameButton.TabIndex = 25;
@@ -238,7 +238,7 @@ namespace RecipeFoodBook
             // changeIngredientNameTextBox
             // 
             this.changeIngredientNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.changeIngredientNameTextBox.Location = new System.Drawing.Point(293, 561);
+            this.changeIngredientNameTextBox.Location = new System.Drawing.Point(293, 559);
             this.changeIngredientNameTextBox.Name = "changeIngredientNameTextBox";
             this.changeIngredientNameTextBox.Size = new System.Drawing.Size(166, 26);
             this.changeIngredientNameTextBox.TabIndex = 24;
